@@ -27,7 +27,7 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+
 header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
@@ -51,29 +51,14 @@ header {
 }
 
 .logo-img {
-    width: 210px;
+    width: 290px;
     height: 180px;
     padding: 50px 40px;
-    
-    
 }
 
 .logo-text {
     display: flex;
     flex-direction: column;
-}
-
-.logo-fc {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    background-color: #90ee90;
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .logo-solucoes {
@@ -88,24 +73,36 @@ header {
     color: var(--accent);
 }
 
+/* Navegação (desktop padrão) */
 nav ul {
     display: flex;
+    flex-direction: row;
     list-style: none;
-    gap: 30px;
+    gap: 20px;
 }
 
-nav a {
-    color: white;
+nav ul li a {
     text-decoration: none;
-    font-weight: 500;
+    color: white;
+    font-size: 30px;
     transition: color 0.3s;
-    font-size: 1.1rem;
 }
 
-nav a:hover {
-    color: var(--accent);
+nav ul li a:hover {
+    color: #ffb6c1;
 }
 
+/* Botão hamburguer (escondido no desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Botão Fale conosco */
 .btn-contact {
     background-color: #90ee90;
     color: white;
@@ -121,6 +118,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+/* Hero */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./img/img-banner.jpeg');
     background-size: cover;
@@ -255,8 +253,6 @@ nav a:hover {
     display: block;
 }
 
-
-
 /* Contact */
 .contact {
     padding: 80px 0;
@@ -311,7 +307,7 @@ nav a:hover {
     background-color: #e57100;
 }
 
-/* Footer */
+
 footer {
     background-color: var(--dark);
     color: white;
@@ -355,7 +351,7 @@ footer {
     color: #ccc;
 }
 
-
+/* RESPONSIVIDADE */
 
 /* Tablets (até 992px) */
 @media (max-width: 992px) {
@@ -394,6 +390,37 @@ footer {
 
 /* Smartphones (até 768px) */
 @media (max-width: 768px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: var(--primary);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        padding: 15px;
+        width: 200px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
@@ -405,11 +432,6 @@ footer {
     .btn-hero {
         font-size: 1rem;
         padding: 12px 25px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
     }
 
     .services-grid,
